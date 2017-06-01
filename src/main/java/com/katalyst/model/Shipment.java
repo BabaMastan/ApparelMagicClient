@@ -37,6 +37,12 @@ public class Shipment {
 	public void setShipstation_service(String shipstation_service) {
 		this.shipstation_service = shipstation_service;
 	}
+	@Override
+	public String toString() {
+		return "Shipment [id=" + id + ", provider=" + provider + ", name=" + name + ", shipstation_carrier="
+				+ shipstation_carrier + ", shipstation_service=" + shipstation_service + "]";
+	}
+	
 	
 
 }
