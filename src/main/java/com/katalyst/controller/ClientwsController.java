@@ -22,7 +22,7 @@ import net.sf.json.JSONObject;
 public class ClientwsController {
 	private static final Logger logger = LoggerFactory.getLogger(ClientwsController.class);
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="/test")
 	public String info()
 	{
 		logger.debug("This is a test for logger creation");
