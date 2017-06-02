@@ -1,0 +1,51 @@
+<html>
+  <head>  
+  <title>Apparel Magic API JSON</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+ <script type="text/javascript" src="static/view_shipmentscontroller.js"></script>
+    </head>
+    <body ng-app="ShipmentManagement" ng-controller="ShipmentController">
+         <h1>
+           Apparel Magic API JSON
+         </h1> 
+        <div class="row">
+        <div class="col-lg-1">
+        id
+        </div>
+        <div class="col-lg-3">
+        provider
+        </div>
+         <div class="col-lg-2">
+        name
+        </div>
+         <div class="col-lg-3">
+        shipstation_carrier
+        </div>
+         <div class="col-lg-3">
+        shipstation_service
+        </div>
+        </div>
+        <div ng-repeat="shipment in shipments">
+        <div class="row">
+        <div class="col-lg-1">
+        {{ shipment.id }}
+        </div>
+        <div class="col-lg-3">
+        {{ shipment.provider }}
+        </div>
+         <div class="col-lg-2">
+        {{ shipment.name }}
+        </div>
+         <div class="col-lg-3">
+        {{ shipment.shipstation_carrier }}
+        </div>
+         <div class="col-lg-3">
+        {{ shipment.shipstation_service }}
+        </div>
+        </div>
+        </div>
+  </body>
+</html>
