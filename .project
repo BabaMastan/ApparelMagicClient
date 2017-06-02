@@ -3,6 +3,7 @@
 	<name>ApparelMagicClient</name>
 	<comment></comment>
 	<projects>
+		<project>AngularJSClient</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
