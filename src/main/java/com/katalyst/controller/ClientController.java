@@ -13,7 +13,7 @@ public class ClientController {
 	}   
 	@RequestMapping("/webShipments")
 	public String Shipments(Model model){
-		return "angular";
+		return "view_shipments";
 	}
 
 }

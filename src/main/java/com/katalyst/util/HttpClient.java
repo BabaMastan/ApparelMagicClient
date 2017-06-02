@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 import org.apache.log4j.Logger;
 
@@ -18,13 +19,17 @@ public class HttpClient {
 	
 	
 	
-	public static JSONObject sendto(JSONObject requestJSON, String method, String param) throws Exception {
+	public static JSONObject sendto(String requestEncodeddata, String method, String param) throws Exception {
 
         String responseJsonString = "";
 
         String respondMessage = null;
 
         String errorMessage = null;
+        
+        String postData = null;
+        
+        String tokentime= "time=171114279788&token=64ebd05e550b23a15be09ccef57b27c6";
 
         HttpURLConnection conn = null;
 
@@ -74,12 +79,18 @@ public class HttpClient {
             conn.setDoOutput(true);
 
             conn.setRequestMethod(method);
+            if(method.equals("POST"))
+            {
+            	conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            }
 
-            if (requestJSON != null) {
+            if (requestEncodeddata != null) {
 
                 os = conn.getOutputStream();
-
-                os.write(requestJSON.toString().getBytes());
+                
+                postData = tokentime+"&"+requestEncodeddata;
+                
+                os.write(postData.getBytes(StandardCharsets.UTF_8));
 
                 os.flush();
 
@@ -173,7 +184,9 @@ public class HttpClient {
 				            }
 				
 				        }
+        		
 				
+        			logger.debug("Response JSON"+ responseJSON.toString());
 				        return responseJSON;
 				
 				    }

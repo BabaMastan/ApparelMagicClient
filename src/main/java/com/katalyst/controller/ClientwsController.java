@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -12,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -63,7 +65,7 @@ public class ClientwsController {
 	     return Shipments;
 		
 	}
-	
+	//This method is for getting shipments by individual ID
 	@RequestMapping(value="/Shipments/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Shipment shipment(@PathVariable("id") long id){
@@ -102,8 +104,23 @@ public class ClientwsController {
 	     return null;
 		
 	}
-		
+		//This method is for POST the new shipment method to the URL
 	
+	@RequestMapping(value="/newShipment")
+	@Consumes(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String shipment(@RequestBody String requestString){
+		JSONObject response = null;
+		logger.debug("Data to be sent:"+requestString);
+		try {
+			response = HttpClient.sendto(requestString, "POST", "ship_methods?time=171114279788&token=64ebd05e550b23a15be09ccef57b27c6");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		logger.debug("Response from HttpClient: "+response.toString());
+		return response.toString();
+	}
 	
 	
 }
