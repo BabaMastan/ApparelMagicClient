@@ -11,17 +11,13 @@
     </head>
     <body ng-app="ShipmentManagement" ng-controller="ShipmentController">
     
-		<div><h1>Add New Shipment</h1></div>
-		<br/><br/><br/><br/>
-		
-		
 		<div class="form">
 			  
 			  <h1>Add New Shipment</h1>
 			  <form ng-submit="submitShipment()">
-			    <input type="text" placeholder="Your name" ng-model="shipmentForm.name"/>
+			    <input type="text" placeholder="name" ng-model="shipmentForm.name"/>
 			    
-			    <input type="text" placeholder="E-mail" ng-model="shipmentForm.provider"/>
+			    <input type="text" placeholder="provider" ng-model="shipmentForm.provider"/>
 			    
 			    <input type="submit" value="Submit" class="submit"/>
 			    
@@ -33,7 +29,9 @@
 			    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 			    <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js'></script>
 			    <script src="js/form.js"></script>
-    
+			    <br/>
+    			<div><h1>For Adding New Shipment Click above</h1></div>
+		
     
     
     
