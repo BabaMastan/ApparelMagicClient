@@ -2,8 +2,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
 html,
 body {
-  margin: 0;
-  padding: 0;
   height: 100%;
   width: 100%;
 }
@@ -31,16 +29,18 @@ body {
           align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  background: #d1db82;
+      /* intial color #d1db82*/
+  background: #5f5f5f;
   font-family: 'Lato', sans-serif;
 }
 /* Form opened styles */
 .form.active {
-  padding: 24px;
-  background: #6c4a27;
+  padding: 14px;
+  /*intial color #6c4a27*/
+  background: #7a7a7a;
   border: 6px solid #cb9a4b;
   box-shadow: 0px 30px 20px -20px rgba(0,0,0,0.3);
-  overflow: hidden;
+  overflow: auto;
   width: 40%;
   height: 40%;
   -webkit-animation: openForm 1.4s;
@@ -105,10 +105,10 @@ h1 {
   top: 0;
   opacity: 1;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   text-transform: uppercase;
   color: #cb9a4b;
-  margin-bottom: 32px;
+  margin-bottom: 15px;
   -webkit-transition: all 0.3s 1s ease;
   transition: all 0.3s 1s ease;
 }
