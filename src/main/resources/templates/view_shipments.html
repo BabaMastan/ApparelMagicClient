@@ -10,10 +10,12 @@
       <link rel="stylesheet" href="css/form.css"/>
     </head>
     <body ng-app="ShipmentManagement" ng-controller="ShipmentController">
-    
+   <Center> <div><h1>For Adding New Shipment Click below</h1></div>
+    <br/>
 		<div class="form">
 			  
 			  <h1>Add New Shipment</h1>
+			  <div class="boxclose" >X</div>
 			  <form ng-submit="submitShipment()">
 			    <input type="text" placeholder="name" ng-model="shipmentForm.name"/>
 			    
@@ -22,7 +24,7 @@
 			    <input type="submit" value="Submit" class="submit"/>
 			    
 			  </form>
-		</div>
+		</div></Center>
 
 			<div class="ok_message">
 			<span>Shipment Created</span></div>
@@ -30,7 +32,7 @@
 			    <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js'></script>
 			    <script src="js/form.js"></script>
 			    <br/>
-    			<div><h1>For Adding New Shipment Click above</h1></div>
+    			
 		
     
     
