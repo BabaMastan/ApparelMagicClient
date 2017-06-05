@@ -12,5 +12,5 @@ $(".ok_message").on('click', function() {
   $(".form").removeClass("active").show();
 });
 $(".boxclose").on('click', function() {
-	  $(".form").removeClass("active").show("form");	
+	$(".form").removeClass("active").show();
 });
