@@ -95,10 +95,10 @@ public class ApparelMagicWSService {
 		JSONObject response = null;
 		logger.debug("Data to be sent:"+requestString);
 		JSONObject postData = new JSONObject();
+		postData = requestString.toJson();
 		 postData.put("time", time);
          postData.put("token", token);
-		postData.put("name", requestString.getName());
-		postData.put("provider", requestString.getProvider());
+		
 		try {
 			response = HttpClient.sendto(postData, "POST", "ship_methods");
 		} catch (Exception e) {

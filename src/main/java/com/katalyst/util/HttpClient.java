@@ -19,7 +19,7 @@ public class HttpClient {
 	
 	
 	
-	public static JSONObject sendto(String requestEncodeddata, String method, String param) throws Exception {
+	public static JSONObject sendto(JSONObject requestEncodeddata, String method, String param) throws Exception {
 
         String responseJsonString = "";
 
@@ -27,9 +27,10 @@ public class HttpClient {
 
         String errorMessage = null;
         
-        String postData = null;
+        JSONObject postData = null;
         
-        String tokentime= "time=171114279788&token=64ebd05e550b23a15be09ccef57b27c6";
+        String time= "171114279788";
+        String token="64ebd05e550b23a15be09ccef57b27c6";
 
         HttpURLConnection conn = null;
 
@@ -81,16 +82,16 @@ public class HttpClient {
             conn.setRequestMethod(method);
             if(method.equals("POST"))
             {
-            	conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            	conn.setRequestProperty("Content-Type", "application/json");
             }
 
             if (requestEncodeddata != null) {
 
                 os = conn.getOutputStream();
                 
-                postData = tokentime+"&"+requestEncodeddata;
+                postData = requestEncodeddata;
                 
-                os.write(postData.getBytes(StandardCharsets.UTF_8));
+                os.write(postData.toString().getBytes(StandardCharsets.UTF_8));
 
                 os.flush();
 
