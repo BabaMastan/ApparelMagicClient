@@ -19,5 +19,5 @@ public class ApparelMagicController {
 	public String addShipments(Model model){
 		return "form";
 	}
-
+	
 }

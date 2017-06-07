@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.katalyst.model.MapShipment;
+import com.katalyst.model.NewOrder;
 import com.katalyst.model.Shipment;
 import com.katalyst.service.ApparelMagicWSService;
 import com.katalyst.util.HttpClient;
@@ -64,6 +65,11 @@ public class ApparelMagicWSController {
 	public String shipment(@RequestBody MapShipment request){
 		return apparelMagicWsService.createNewShipment(request);
 	}
-	
+	@RequestMapping(value="/newOrder")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String neworder(@RequestBody NewOrder request){
+		return apparelMagicWsService.createNewOrder(request);
+	}
 	
 }

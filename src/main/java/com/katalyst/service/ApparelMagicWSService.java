@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.katalyst.controller.ApparelMagicWSController;
 import com.katalyst.model.MapShipment;
+import com.katalyst.model.NewOrder;
 import com.katalyst.model.Shipment;
 import com.katalyst.util.HttpClient;
 
@@ -22,6 +23,9 @@ import net.sf.json.JSONObject;
 public class ApparelMagicWSService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ApparelMagicWSService.class);
+	
+	private static String token= "64ebd05e550b23a15be09ccef57b27c6";
+    private static String time="171114279788";
 	
 	public ArrayList<Shipment> getShipments()
 	{
@@ -90,9 +94,13 @@ public class ApparelMagicWSService {
 	public String createNewShipment(MapShipment requestString){
 		JSONObject response = null;
 		logger.debug("Data to be sent:"+requestString);
-		String postData = "name="+requestString.getName()+"&"+"provider="+requestString.getProvider();
+		JSONObject postData = new JSONObject();
+		 postData.put("time", time);
+         postData.put("token", token);
+		postData.put("name", requestString.getName());
+		postData.put("provider", requestString.getProvider());
 		try {
-			response = HttpClient.sendto(postData, "POST", "ship_methods?time=171114279788&token=64ebd05e550b23a15be09ccef57b27c6");
+			response = HttpClient.sendto(postData, "POST", "ship_methods");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -100,7 +108,22 @@ public class ApparelMagicWSService {
 		logger.debug("Response from HttpClient: "+response.toString());
 		return response.toString();
 	}
-	
+	public String createNewOrder(NewOrder requestString){
+		JSONObject response = null;
+		logger.debug("Data to be sent:"+requestString.toString());
+		JSONObject postData = new JSONObject();
+		postData = requestString.toJson();
+		 postData.put("time", time);
+         postData.put("token", token);
+		try {
+		response = HttpClient.sendto(postData, "POST", "orders");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		logger.debug("Response from HttpClient: "+response.toString());
+		return response.toString();
+	}
 
 
 }
