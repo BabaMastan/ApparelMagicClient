@@ -15,9 +15,10 @@ public class ApparelMagicController {
 	public String Shipments(Model model){
 		return "view_shipments";
 	}
-	@RequestMapping("/addWebShipments")
-	public String addShipments(Model model){
-		return "form";
+
+	@RequestMapping("/createNewOrder")
+	public String NewOrder(Model model){
+		return "neworder";
 	}
 	
 }
