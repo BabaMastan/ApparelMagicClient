@@ -15,12 +15,11 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn clean install
       - mvn package
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
-    - target/ApparelMagicClient-1.0.jar
+    - target/ApparelMagicClient.jar
   discard-paths: yes
